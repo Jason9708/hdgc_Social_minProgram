@@ -1,0 +1,90 @@
+/* pages/Home/home.wxss */
+.home_page{
+  position: relative;
+  height:100%;
+  width:100;
+  display: flex;
+  flex-direction: column;
+}
+.cover_image{
+  position: relative;
+}
+.cover_image image{
+  width:100%;
+}
+.cover_image .info{
+  position: absolute;
+  top:10rpx;
+  left:10rpx;
+  display:flex;
+  align-items:center;
+  padding:15rpx;
+  border-radius:5px;
+  font-size:22rpx;
+  letter-spacing:3rpx;
+  background-color:rgba(45, 52, 54,.7);
+  color:rgba(236, 240, 241,1.0);
+}
+.cover_image .info .divider1{
+  border-radius:10rpx;
+  width:30rpx;
+  height:3rpx;
+  background-color:rgba(236, 240, 241,.7);
+  transform:rotate(-90deg);
+}
+
+.cover_image .divider2{
+  position: absolute;
+  bottom:8rpx;
+  left:50rpx;
+  border-radius:10rpx;
+  width:50rpx;
+  height:5rpx;
+  background-color:#3d3d3d;
+  transform:rotate(-30deg);
+}
+.cover_image .classification{
+  position: absolute;
+  bottom:-90rpx;
+  left:50rpx;
+  font-size:40rpx;
+  width:50rpx;
+  display: flex;
+  align-content: center;
+  line-height:100rpx;
+  color:#3d3d3d;
+}
+
+.article_intro{
+  flex:1;
+  display:flex;
+  flex-direction: column;
+  padding:100rpx;
+}
+
+.article_intro .content{
+  margin-top:20rpx;
+  font-size:25rpx;
+  letter-spacing:3rpx;
+  text-indent:50rpx;
+}
+
+/* 翻页按钮 */
+.home_pageBtn_left{
+  position: absolute;
+  bottom:250rpx;
+  left:50rpx;
+}
+.home_pageBtn_right{
+  position: absolute;
+  bottom:250rpx;
+  right:50rpx;
+}
+
+/* 导航 */
+.home_navigation{
+  position: absolute;
+  bottom:50rpx;
+  left:50%;
+  transform: translateX(-50%)
+}

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "component-header":"../components/header",
+    "component-navigation":"../components/navigation",
+    "component-pageBtn":"../components/pageBtn"
+  }
+}

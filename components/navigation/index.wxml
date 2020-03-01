@@ -1,0 +1,6 @@
+<!--components/navigation/index.wxml-->
+<view class='navigation_box'>
+  <view class="iconfont icon-home" bindtap='btnTap' data-type='1'></view>
+  <view class='divider'></view>
+  <view class="iconfont icon-all" bindtap='btnTap' data-type='2'></view>
+</view>

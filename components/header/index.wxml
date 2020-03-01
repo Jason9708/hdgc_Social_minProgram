@@ -1,0 +1,18 @@
+<!--components/header/index.wxml-->
+<view class='header_box'>
+  <view class='header_left'>
+    <!-- 序号 -->
+    <view class='left_serial'>
+      <text style='font-size:24rpx;color:#84817a;margin-right:3px;margin-bottom:10rpx;'>Day.</text>
+      <text style='font-size:50rpx;font-weight:800;color:#000;'>{{day}}</text>
+    </view>
+    <view class='left_date'>
+      <text style='margin-bottom:4rpx;'>{{month}}</text>
+      <text>{{year}}</text>
+    </view>
+  </view>
+  <view class='header_right'>
+    <image style='width:36rpx;height:36rpx;' src='images/like.png' />
+    <text style='margin-left:10rpx;font-size:22rpx;'>{{like}}</text>
+  </view>
+</view>

@@ -1,0 +1,87 @@
+<!--pages/Home/home.wxml-->
+<view class='home_page'>
+  <component-header month='{{home.getEnglishMonth(articlesList[currentIndex].date)}}' day='{{home.getDay(articlesList[currentIndex].date)}}' year='{{home.getYear(articlesList[currentIndex].date)}}' like='{{articlesList[currentIndex].like}}'></component-header>
+  <view class='cover_image'>
+    <image src="{{articlesList[currentIndex].coverPic != '' ? home.fullCoverPath(articleCoverPath, articlesList[currentIndex].coverPic) : '../../images/default_cover.png' }}"  mode="scaleFill" />
+    <view class='info'>
+      <text>{{articlesList[currentIndex].title}}</text>
+      <text class='divider1'></text>
+      <text>{{articlesList[currentIndex].createUserName}}</text>
+      <image style='margin-left:30rpx;width:30rpx;height:30rpx;border-radius:50%;' src='{{home.fullAvatarPath(avatarPath, articlesList[currentIndex].createUserAvatar)}}' mode="scaleFill" />
+    </view>
+    <text class='divider2'></text>
+    <view class='classification'>
+      {{home.getClassificationDes(articlesList[currentIndex].classification)}}
+    </view>
+  </view>
+  <view class='article_intro'>
+    <text style='padding-bottom:20rpx;border-bottom:1px solid rgba(151, 151, 151, 0.1);font-size:20rpx; '>Intro:</text>
+    <view class='content'>
+      {{articlesList[currentIndex].intro}}
+    </view>
+  </view>
+  <component-pageBtn wx:if='{{currentIndex != 0}}' class='home_pageBtn_left' icon='left' bindpageBtnTapEvent='getPrevious'></component-pageBtn>
+  <component-pageBtn wx:if='{{currentIndex < articlesList.length - 1}}' class='home_pageBtn_right' icon='right' bindpageBtnTapEvent='getNext'></component-pageBtn>
+  <component-navigation class='home_navigation' bindnavBtnTapEvent='navigationEvent'></component-navigation>
+</view>
+
+<wxs module='home'>
+  var fullCoverPath = function(articleCoverPath,coverPic){
+    return articleCoverPath + coverPic
+  }
+  
+  var fullAvatarPath = function(avatarPath,avatar){
+    return avatarPath + avatar
+  }
+
+  // 根据classification获取对应分类名  1-随笔   2-新闻   3-知识   4-沸点
+  var getClassificationDes = function(classification){
+      switch(classification){
+          case '1':
+              return '随笔'
+              break
+          case '2':
+              return '新闻'
+              break
+          case '3':
+              return '知识'
+              break
+          case '4':
+              return '沸点'
+              break
+          default:
+              return ''
+      }
+  }
+
+  var getEnglishMonth = function(date) {
+    var EnglishMonthDec = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    var time = getDate(date)
+    var month = time.getMonth()
+
+    return EnglishMonthDec[month]
+  }
+
+  var getYear = function(date) {
+    var time = getDate(date)
+    return time.getFullYear()
+  }
+
+  var getDay = function(date){
+    var time = getDate(date)
+    var day = time.getDate()
+    if(day < 10){
+      day = '0' + day
+    }
+    return day
+  } 
+
+  module.exports = {
+    fullCoverPath: fullCoverPath,
+    fullAvatarPath: fullAvatarPath,
+    getClassificationDes: getClassificationDes,
+    getEnglishMonth: getEnglishMonth,
+    getYear: getYear,
+    getDay: getDay
+  }
+</wxs>

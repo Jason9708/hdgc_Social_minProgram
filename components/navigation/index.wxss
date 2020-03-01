@@ -1,0 +1,45 @@
+/* components/navigation/index.wxss */
+@font-face {
+  font-family: 'iconfont';  /* project id 1664154 */
+  src: url('//at.alicdn.com/t/font_1664154_bro8m7sibcp.eot');
+  src: url('//at.alicdn.com/t/font_1664154_bro8m7sibcp.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1664154_bro8m7sibcp.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1664154_bro8m7sibcp.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1664154_bro8m7sibcp.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1664154_bro8m7sibcp.svg#iconfont') format('svg');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 32rpx;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin-top:10rpx;
+  padding:0rpx 20rpx;
+}
+
+.icon-all::before {
+  content: "\e628";
+}
+
+.icon-home::before {
+  content: "\e626";
+}
+
+.navigation_box{
+  display: flex;
+  align-items:center;
+  padding:5rpx 20rpx 5rpx 20rpx;
+  border-radius:10rpx;
+  background-color:rgba(45, 52, 54,.6);
+  color:rgba(236, 240, 241,1.0);
+}
+
+.navigation_box .divider{
+  border-radius:10rpx;
+  width:30rpx;
+  height:5rpx;
+  background-color:rgba(236, 240, 241,.7);
+  transform:rotate(-90deg);
+}

@@ -1,0 +1,15 @@
+{
+  "pages": [
+    "pages/Home/home",
+    "components/header/index",
+    "pages/List/list"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Daily",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

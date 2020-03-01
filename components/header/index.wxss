@@ -1,0 +1,31 @@
+/* components/header/index.wxss */
+.header_box{
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  /* border-top: 1px solid rgba(151, 151, 151, 0.1);
+  border-bottom: 1px solid rgba(151, 151, 151, 0.1); */
+}
+.header_left{
+  display: flex;
+}
+.header_left .left_serial{
+  display: flex;
+  align-items:flex-end;
+}
+.header_left .left_date{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left:20rpx;
+  padding-left: 20rpx;
+  border-left:4rpx solid #84817a;
+  font-size: 24rpx;
+  color: #84817a;
+}
+
+.header_right{
+  margin-right:20rpx;
+  display: flex;
+  align-items:center;
+}
