@@ -1,2 +1,83 @@
 <!--pages/List/list.wxml-->
-<text>pages/List/list.wxml</text>
+<view class='list_page'>
+  <view class='list_container'>
+    <view class='list_box'  wx:for='{{articlesList}}'>
+      <!-- 日期界限 -->
+      <view class='list_date' wx:if='{{list.getEnglishMonth(item.date) != list.getEnglishMonth(articlesList[index - 1].date)}}'>
+        <text class='date'>{{list.getEnglishMonth(item.date)}}</text>
+        <view class='divider'></view>
+      </view>
+      <view class='list_item'>
+        <image src="{{item.coverPic != '' ? list.fullCoverPath(articleCoverPath, item.coverPic) : '../../images/default_cover.png' }}"  mode="widthFix" />
+        <view class='list_item_info'>
+          <view style='font-size:22rpx;display:flex;align-items:center;flex-wrap;wrap;'>「{{item.title}}」· <text style='margin-left:10rpx;color:rgba(45, 52, 54,.7);font-size:18rpx;'>{{list.getClassificationDes(item.classification)}}</text> </view>
+          <view style='font-size:18rpx;margin-left:15rpx;margin-top:10rpx;color:rgba(45, 52, 54,.7);'>
+            <text>{{item.createUserName}} / <text>{{list.formatDate(item.date)}}</text></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <component-navigation class='home_navigation' bindnavBtnTapEvent='navigationEvent'></component-navigation>
+</view>
+
+<wxs module='list'>
+  var fullCoverPath = function(articleCoverPath,coverPic){
+    return articleCoverPath + coverPic
+  }
+  
+  var fullAvatarPath = function(avatarPath,avatar){
+    return avatarPath + avatar
+  }
+
+  // 根据classification获取对应分类名  1-随笔   2-新闻   3-知识   4-沸点
+  var getClassificationDes = function(classification){
+      switch(classification){
+          case '1':
+              return '随笔'
+              break
+          case '2':
+              return '新闻'
+              break
+          case '3':
+              return '知识'
+              break
+          case '4':
+              return '沸点'
+              break
+          default:
+              return ''
+      }
+  }
+
+  var formatDate = function(date) {
+    var time = getDate(date)
+    var month = time.getMonth() + 1
+    if(month < 10){
+      month = '0' + month
+    }
+    var year = time.getFullYear()
+    var day = time.getDate()
+    if(day < 10){
+      day = '0' + day
+    }
+
+    return year + '-' + month + '-' + day
+  }
+
+  var getEnglishMonth = function(date) {
+    var EnglishMonthDec = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+    var time = getDate(date)
+    var month = time.getMonth()
+
+    return EnglishMonthDec[month]
+  }
+
+  module.exports = {
+    fullCoverPath: fullCoverPath,
+    fullAvatarPath: fullAvatarPath,
+    getClassificationDes: getClassificationDes,
+    formatDate: formatDate,
+    getEnglishMonth: getEnglishMonth
+  }
+</wxs>

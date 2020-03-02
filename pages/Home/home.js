@@ -57,11 +57,11 @@ Page({
 
   navigationEvent: function(e){
     if(e.detail == 1){
-      wx.navigateTo({
+      wx.redirectTo({
         url:'../../pages/Home/home'
       })
     }else{
-      wx.navigateTo({
+      wx.redirectTo({
         url: '../../pages/List/list'
       })
     }
