@@ -2,7 +2,7 @@
 <view class='home_page'>
   <component-header month='{{home.getEnglishMonth(articlesList[currentIndex].date)}}' day='{{home.getDay(articlesList[currentIndex].date)}}' year='{{home.getYear(articlesList[currentIndex].date)}}' like='{{articlesList[currentIndex].like}}'></component-header>
   <view class='cover_image'>
-    <image src="{{articlesList[currentIndex].coverPic != '' ? home.fullCoverPath(articleCoverPath, articlesList[currentIndex].coverPic) : '../../images/default_cover.png' }}"  mode="scaleFill" />
+    <image src="{{articlesList[currentIndex].coverPic != '' ? home.fullCoverPath(articleCoverPath, articlesList[currentIndex].coverPic) : '../../images/default_cover.png' }}"  mode="scaleFill" bindtap='goDetail' data-id='{{articlesList[currentIndex]._id}}'/>
     <view class='info'>
       <text>{{articlesList[currentIndex].title}}</text>
       <text class='divider1'></text>

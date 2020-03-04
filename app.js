@@ -1,5 +1,9 @@
 //app.js
+
 App({
+
+  towxml: require('/towxml/index'),
+
   onLaunch: function () {
     // 登录
     wx.login({

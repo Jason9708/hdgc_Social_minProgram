@@ -65,5 +65,12 @@ Page({
         url: '../../pages/List/list'
       })
     }
+  },
+
+  goDetail: function(e){
+    var id = e.currentTarget.dataset.id
+    wx.redirectTo({
+      url: '../../pages/Detail/detail?id=' + id
+    })
   }
 })

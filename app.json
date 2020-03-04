@@ -2,7 +2,8 @@
   "pages": [
     "pages/Home/home",
     "components/header/index",
-    "pages/List/list"
+    "pages/List/list",
+    "pages/Detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "dark",

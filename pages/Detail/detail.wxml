@@ -1,0 +1,75 @@
+<!--pages/Detail/detail.wxml-->
+<view class='detail_page'>
+  <view style='border-radius:10rpx;'>
+    <image src="{{articlesDetail.coverPic != '' ? detail.fullCoverPath(articleCoverPath, articlesDetail.coverPic) : '../../images/default_cover.png' }}"  mode="scaleFill" />
+  </view>
+  <view class='detail_info'>
+    <view class='info_left'>
+      <text style='color:rgba(45, 52, 54,.7); font-size:26rpx;margin-bottom:20rpx;font-weight:600;'>{{articlesDetail.title}}</text>
+      <view style='color:rgba(45, 52, 54,.5); font-size:20rpx;'>
+        <text style='margin-right:10rpx;'>{{articlesDetail.createUserName}}</text>
+        <text style='margin-right:10rpx;'> · </text>
+        <text>{{detail.formatDate(articlesDetail.date)}}</text>
+      </view>
+    </view>
+    <view class='info_right'>
+      <image src="{{detail.fullAvatarPath(avatarPath, articlesDetail.createUserAvatar)}}"  mode="scaleFill" />
+    </view>
+  </view>
+  <view class='detail_content'>
+    <towxml nodes="{{content}}"/>
+  </view>
+</view>
+
+<wxs module='detail'>
+  var fullCoverPath = function(articleCoverPath,coverPic){
+    console.log(articleCoverPath + coverPic)
+    return articleCoverPath + coverPic
+  }
+  
+  var fullAvatarPath = function(avatarPath,avatar){
+    return avatarPath + avatar
+  }
+
+  // 根据classification获取对应分类名  1-随笔   2-新闻   3-知识   4-沸点
+  var getClassificationDes = function(classification){
+      switch(classification){
+          case '1':
+              return '随笔'
+              break
+          case '2':
+              return '新闻'
+              break
+          case '3':
+              return '知识'
+              break
+          case '4':
+              return '沸点'
+              break
+          default:
+              return ''
+      }
+  }
+
+  var formatDate = function(date) {
+    var time = getDate(date)
+    var month = time.getMonth() + 1
+    if(month < 10){
+      month = '0' + month
+    }
+    var year = time.getFullYear()
+    var day = time.getDate()
+    if(day < 10){
+      day = '0' + day
+    }
+
+    return year + '-' + month + '-' + day
+  }
+
+  module.exports = {
+    fullCoverPath: fullCoverPath,
+    fullAvatarPath: fullAvatarPath,
+    getClassificationDes: getClassificationDes,
+    formatDate: formatDate
+  }
+</wxs>
